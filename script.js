@@ -18,6 +18,7 @@ document.querySelector('.check').addEventListener('click', () => {
   // When there is no inpput.
   if (!guess) {
     displayMessage('⛔ No Number!');
+    document.querySelector('body').style.backgroundColor = '#5f9ea0';
 
     // When player wins.
   } else if (guess === secretNumber) {
@@ -41,6 +42,7 @@ document.querySelector('.check').addEventListener('click', () => {
     } else {
       displayMessage('🦞 You lost the game!');
       document.querySelector('.score').textContent = 0;
+      document.querySelector('body').style.backgroundColor = '#dc143c';
     }
   }
 });
