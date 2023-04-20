@@ -1,6 +1,8 @@
-'use strict';
-
-//before refactoring the code.
+/* eslint-disable no-console */
+/* eslint-disable no-continue */
+/* eslint-disable no-plusplus */
+/* eslint-disable func-names */
+// before refactoring the code.
 /*
 console.log(document.querySelector('.message').textContent);
 
@@ -9,7 +11,7 @@ document.querySelector('.number').textContent = 13;
 document.querySelector('.score').textContent = 10;
 
 document.querySelector('.guess').value = 25;
-console.log(document.querySelector('.guess').value);*/
+console.log(document.querySelector('.guess').value); */
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
@@ -19,16 +21,16 @@ const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
 
-document.querySelector('.check').addEventListener('click', function () {
+document.querySelector('.check').addEventListener('click', () => {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
 
-  //When there is no inpput.
+  // When there is no inpput.
   if (!guess) {
     // document.querySelector('.message').textContent = '⛔ No Number!';
     displayMessage('⛔ No Number!');
 
-    //When player wins.
+    // When player wins.
   } else if (guess === secretNumber) {
     // document.querySelector('.message').textContent = '🍦Correct Number!';
     displayMessage('🍦Correct Number!');
@@ -42,7 +44,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highScore;
     }
 
-    //When guess is wrong.
+    // When guess is wrong.
   } else if (guess !== secretNumber) {
     if (score > 1) {
       // document.querySelector('.message').textContent =
@@ -57,7 +59,7 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 
-  //When guess is too high.
+  // When guess is too high.
   // } else if (guess > secretNumber) {
   //   if (score > 1) {
   //     document.querySelector('.message').textContent = '🚩 Too High!';
@@ -81,7 +83,7 @@ document.querySelector('.check').addEventListener('click', function () {
   // }
 });
 
-document.querySelector('.again').addEventListener('click', function () {
+document.querySelector('.again').addEventListener('click', () => {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   // document.querySelector('.message').textContent = '😝 Start Guessing ...';

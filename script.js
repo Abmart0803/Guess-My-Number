@@ -1,5 +1,8 @@
-'use strict';
-//after refactoring the code.
+/* eslint-disable no-console */
+/* eslint-disable no-continue */
+/* eslint-disable no-plusplus */
+/* eslint-disable func-names */
+// after refactoring the code.
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
@@ -8,15 +11,15 @@ const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
 
-document.querySelector('.check').addEventListener('click', function () {
+document.querySelector('.check').addEventListener('click', () => {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
 
-  //When there is no inpput.
+  // When there is no inpput.
   if (!guess) {
     displayMessage('⛔ No Number!');
 
-    //When player wins.
+    // When player wins.
   } else if (guess === secretNumber) {
     displayMessage('🍦Correct Number!');
     document.querySelector('.number').textContent = secretNumber;
@@ -29,7 +32,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highScore;
     }
 
-    //When guess is wrong.
+    // When guess is wrong.
   } else if (guess !== secretNumber) {
     if (score > 1) {
       displayMessage(guess > secretNumber ? '🚩 Too High!' : '🚩 Too Low!');
@@ -42,7 +45,7 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 });
 
-document.querySelector('.again').addEventListener('click', function () {
+document.querySelector('.again').addEventListener('click', () => {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   displayMessage('😝 Start Guessing ...');
